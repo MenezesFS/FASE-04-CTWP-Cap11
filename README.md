@@ -1,4 +1,4 @@
-# Classificação de Grãos de Trigo com Seeds Dataset (Challenge Hermes Reply - Sprint 2)
+# Classificação de Grãos de Trigo com Seeds Dataset 
 
 Projeto desenvolvido como parte do desafio Hermes Reply (Fase 4), com foco em aplicar a metodologia **CRISP-DM** ao *Seeds Dataset* da UCI para classificação de três variedades de grãos de trigo.
 
@@ -64,5 +64,5 @@ Este projeto demonstrou com sucesso a aplicação prática do CRISP-DM ao Seeds 
 
 ## 🎓 Curso
 FIAP | Enterprise Challenge 2025.1  
-Fase 4 – Simulação e coleta de dados com ESP32  
-Projeto acadêmico em parceria com a Hermes Reply
+Fase 4 – Cap 3 (Ir Além)
+
