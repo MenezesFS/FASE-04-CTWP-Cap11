@@ -1,87 +1,68 @@
-# Seeds Dataset Classification (CRISP-DM Projeto)
+# Classificação de Grãos de Trigo com Seeds Dataset (Challenge Hermes Reply - Sprint 2)
 
-Este projeto aplica a metodologia **CRISP-DM** ao *Seeds Dataset* da UCI, com foco em classificação de três variedades de grãos de trigo. Inclui notebooks em Jupyter que cobrem desde a aquisição dos dados até a entrega de modelos otimizados.
-
----
+Projeto desenvolvido como parte do desafio Hermes Reply (Fase 4), com foco em aplicar a metodologia **CRISP-DM** ao *Seeds Dataset* da UCI para classificação de três variedades de grãos de trigo.
 
 ## 🎯 Objetivo
-- Implementar todas as fases do CRISP-DM:  
-  1. **Entendimento do Negócio**  
-  2. **Entendimento dos Dados**  
-  3. **Preparação dos Dados**  
-  4. **Modelagem**  
-  5. **Avaliação**  
-  6. **Deploy**
+Aplicar todas as fases do CRISP-DM ao Seeds Dataset:
+1. Entendimento do Negócio  
+2. Entendimento dos Dados  
+3. Preparação dos Dados  
+4. Modelagem  
+5. Avaliação  
+6. Deploy (exemplo de app Streamlit)
 
-- Comparar diversos algoritmos de classificação e otimizar hiperparâmetros via *GridSearchCV*.
+## 🧪 Lista de Atributos Utilizados e Justificativa
+- **area, perimeter, compactness**  
+  Medidas geométricas que ajudam a diferenciar variedades de grãos.  
+- **kernel_length, kernel_width**  
+  Dimensões dos grãos, essenciais para distinção de classe.  
+- **asymmetry_coefficient, groove_length**  
+  Características de forma que aprimoram a segmentação de classes.
 
----
 
-## 📂 Estrutura do Projeto
+## 💻 Código-Fonte Representativo
+```python
+import pandas as pd
+
+# Carregar dados
+col_names = [
+    "area","perimeter","compactness","kernel_length","kernel_width",
+    "asymmetry_coefficient","groove_length","class"
+]
+df = pd.read_csv(
+    "seeds_dataset.txt",
+    sep=r"\s+",
+    names=col_names
+)
+# Exemplo: estatísticas descritivas
+print(df.describe())
 ```
-FASE_04/
-└── CTWP/
-    └── Cap11/
-        ├── seeds_dataset.txt
-        ├── seeds_crispdm_local.ipynb
-        ├── seeds_crispdm_fullsteps.ipynb
-        └── seeds_crispdm_apostilas.ipynb
-```
 
-- **seeds_dataset.txt**: arquivo com 210 amostras e 8 atributos.
-- **seeds_crispdm_local.ipynb**: CRISP-DM completo, leitura de TXT local, armazenamento em SQLite.
-- **seeds_crispdm_fullsteps.ipynb**: Pipeline completo com estatísticas, visualizações, 5 classificadores e otimização de hiperparâmetros.
-- **seeds_crispdm_apostilas.ipynb**: Versão enriquecida com práticas das apostilas (DDL, pipelines, Streamlit, segurança).
+## 🔍 Processamento e Modelagem
+- **Pré-processamento**: tratamento de valores ausentes e padronização com `StandardScaler`.  
+- **Modelagem**: pipelines com KNN, SVM e RandomForest.  
+- **Otimização**: `GridSearchCV` para seleção de hiperparâmetros.
 
----
+## 📊 Análise Gráfica
+- Histogramas e boxplots para distribuição de atributos.  
+- Pairplot para dispersão e correlação entre variáveis.  
+- Importância de atributos no RandomForest.
 
-## ⚙️ Ambiente e Requisitos
-- **Python** 3.6+  
-- Bibliotecas:
-  - `pandas`, `numpy`
-  - `scikit-learn`
-  - `matplotlib`, `seaborn`
-  - `sqlite3`
-  - `streamlit` (para app)
+## 🔗 Links do Projeto
+- **Notebook Colab (CRISP-DM Full Steps)**:  
+  https://colab.research.google.com/drive/1BJvYSt8V64tG8Hnme5tiAllYLUWOoj9b  
+- **Repositório GitHub**:  
+  https://github.com/seu-usuario/seu-repo/tree/main/FASE_04/CTWP/Cap11
 
----
+## ✅ Conclusão
+Este projeto demonstrou com sucesso a aplicação prática do CRISP-DM ao Seeds Dataset, desde a ingestão dos dados até a entrega de modelos otimizados e um app Streamlit de demonstração.
 
-## 🚀 Como Executar
-1. Clone o repositório e acesse a pasta:
-   ```bash
-   git clone https://github.com/seu-usuario/seu-repo.git
-   cd seu-repo/FASE_04/CTWP/Cap11
-   ```
-2. Instale dependências (recomendado usar `venv` ou `conda`):
-   ```bash
-   pip install pandas numpy scikit-learn matplotlib seaborn streamlit
-   ```
-3. Abra o notebook desejado:
-   ```bash
-   jupyter notebook seeds_crispdm_fullsteps.ipynb
-   ```
-4. (Opcional) Rode o app Streamlit:
-   ```bash
-   streamlit run seeds_crispdm_apostilas.ipynb
-   ```
+## 👨‍💻 Integrantes
+- Flavia Nunes Bocchino – RM564213  
+- Pedro Henrique Zani – RM564956  
+- Felipe Menezes – RM557891  
 
----
-
-## 📓 Conteúdo dos Notebooks
-- **Aquisição & DDL**: Leitura do TXT, criação de tabelas raw/processed/predictions em SQLite.  
-- **Pré-processamento**: Limpeza, validação, escalonamento (StandardScaler).  
-- **EDA**: Histogramas, boxplots, pairplots para análise visual.  
-- **Modelagem**: Pipelines SCikit-learn com KNN, SVM, RandomForest, NaiveBayes e Regressão Logística.  
-- **Otimização**: GridSearchCV em cada modelo para seleção de melhores hiperparâmetros.  
-- **Deploy**: Exemplo de app Streamlit para previsão interativa.
-
----
-
-## 📝 Licença
-Material para fins **educacionais**. Sinta-se livre para adaptar e compartilhar.
-
----
-
-## ✉️ Contato
-- Felipe Menezes – [GitHub](https://github.com/seu-usuario)
-- Slack do projeto: #fase4-ctwp
+## 🎓 Curso
+FIAP | Enterprise Challenge 2025.1  
+Fase 4 – Simulação e coleta de dados com ESP32  
+Projeto acadêmico em parceria com a Hermes Reply
